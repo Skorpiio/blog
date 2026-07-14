@@ -1,0 +1,24 @@
+<!-- Eigene CSS-Farben für das Dark Theme (Grünlich) -->
+<style>
+  :root,
+  html[data-mode="dark"],
+  html[data-theme="dark"] {
+    --main-bg: #142e23 !important;            /* Hintergrundfarbe der Webseite */
+    --sidebar-bg: #0a1711 !important;         /* Hintergrundfarbe der Seitenleiste */
+    --main-wrapper-bg: #142e23 !important;    /* Wrapper-Hintergrund */
+    --topbar-wrapper-bg: #142e23 !important;  /* Obere Leiste (Mobilgeräte) */
+    --card-bg: #142e23 !important;            /* Hintergrund der Menüs/Karten */
+    --main-border-color: #1e4535 !important;  /* Zarte grüne Trennlinien */
+  }
+</style>
+
+<!-- Aufgeräumter Footer -->
+<footer class="d-flex w-100 justify-content-center">
+  <div class="d-flex justify-content-between align-items-center text-muted">
+    <div class="footer-left">
+      <p class="mb-0">
+        © {{ site.time | date: "%Y" }} <a href="{{ site.url }}">{{ site.social.name }}</a>.
+      </p>
+    </div>
+  </div>
+</footer>
