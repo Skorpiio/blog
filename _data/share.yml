@@ -14,10 +14,6 @@ platforms:
     icon: "fa-brands fa-whatsapp"
     link: "https://api.whatsapp.com/send?text=TITLE%20URL"
 
-  - type: Link kopieren
-    icon: "fas fa-link"
-    link: "javascript:navigator.clipboard.writeText(window.location.href); alert('Link kopiert!');"
-
   - type: E-Mail
     icon: "fas fa-envelope"
     link: "mailto:?subject=TITLE&body=URL"
