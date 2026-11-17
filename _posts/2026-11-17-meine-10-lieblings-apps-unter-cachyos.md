@@ -47,6 +47,21 @@ Danach stellt der Installer ein paar Fragen auf Englisch. Bei den y/n-Fragen rei
 5. **Enable automatic update?** `n`, aus demselben Grund.
 6. **Start Vesktop now?** `y`
 
+<details markdown="1">
+<summary>VCC wieder entfernen</summary>
+
+Vesktop vorher komplett beenden. Die Befehle funktionieren direkt in fish. Falls ihr meine Verbesserungen von unten eingerichtet habt, werden die dabei gleich mit entfernt.
+
+```bash
+systemctl --user disable --now vcc-lokal.path vcc-autorepatch.timer vcc-autoupdate.timer 2>/dev/null
+rm -f ~/.config/systemd/user/vcc-lokal.path ~/.config/systemd/user/vcc-lokal.service ~/.config/systemd/user/vcc-autorepatch.service ~/.config/systemd/user/vcc-autorepatch.timer ~/.config/systemd/user/vcc-autoupdate.service ~/.config/systemd/user/vcc-autoupdate.timer
+systemctl --user daemon-reload
+rm -rf ~/.vesktopCustomCommands ~/.config/vesktop/sessionData/vencordFiles
+```
+
+Der letzte Befehl löscht auch die Vencord-Dateien von Vesktop, in die sich VCC eingetragen hat. Das ist Absicht: Beim nächsten Start lädt Vesktop Vencord einfach frisch herunter, ganz ohne VCC. Eure Vencord-Einstellungen und Plugins bleiben dabei erhalten. Zum Schluss noch die Tastenkürzel in den Systemeinstellungen wieder löschen.
+</details>
+
 ### Meine Verbesserungen für VCC
 
 VCC funktioniert, aber mit der Zeit sind mir drei Probleme aufgefallen, die ich gelöst habe:
@@ -303,7 +318,7 @@ espanso ist ein Text-Expander, der systemweit funktioniert: Man legt Kürzel fes
 ![Meine espanso-Datei mit den Kürzeln :mail und :username](espanso.webp){: w="1280" h="1388" }
 _So sieht die Datei mit den Kürzeln aus. Meine eigenen stehen ganz unten._
 
-{% include embed/video.html src='espanso-date.mp4' title='Hier mit dem Kürzel :date. Vertippt (:dase) oder mit falschem Zeichen davor (#date) passiert nichts.' autoplay=true loop=true muted=true %}
+<p><video class="embed-video file" style="aspect-ratio: auto;" src="/assets/img/posts/lieblings-apps/espanso-date.mp4" autoplay loop muted playsinline></video><em>Hier mit dem Kürzel :date. Vertippt (:dase) oder mit falschem Zeichen davor (#date) passiert nichts.</em></p>
 
 Eine klassische Autovervollständigung ist das aber nicht. Bei einer Autovervollständigung tippt man den Anfang eines Wortes und bekommt den Rest vorgeschlagen. Bei espanso ist das Kürzel etwas völlig anderes als der Text, der rauskommt. Man kann damit auch ganze Vorlagen ablegen: Wenn man für viele E-Mails immer dieselbe Vorlage braucht, tippt man einfach `:vorlage1`, und die Vorlage steht sofort da.
 
